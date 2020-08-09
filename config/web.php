@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'IONE test',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -43,14 +44,18 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'site/index',
+                'ajax/request/search' => 'site/search',
+                'catalog-init' => 'site/catalog-init',
+                '<mark:\w+>/?' => 'site/index',
+                '<mark:\w+>/<model:\w+>/?' => 'site/index',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
